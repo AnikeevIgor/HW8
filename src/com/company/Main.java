@@ -16,15 +16,12 @@ public class Main {
     public static int createFone(int clientOS, int yerCreate) {
         if (clientOS == 1 && yerCreate < 2015) {
             System.out.println("Установите версию приложения для iOS по ссылке");
-        } else {
-            if (clientOS == 1 && yerCreate >= 2015)
-                System.out.println("Установите облегченную версию приложения для iOS по ссылке");
-        }
-        if (clientOS == 0 && yerCreate < 2015) {
+        } else if (clientOS == 1 && yerCreate >= 2015) {
+            System.out.println("Установите облегченную версию приложения для iOS по ссылке");
+        } else if (clientOS == 0 && yerCreate < 2015) {
             System.out.println("Установите версию приложения для Android по ссылке");
-        } else {
-            if (clientOS == 0 && yerCreate >= 2015)
-                System.out.println("Установите облегченную версию приложения для Android по ссылке");
+        } else if (clientOS == 0 && yerCreate >= 2015) {
+            System.out.println("Установите облегченную версию приложения для Android по ссылке");
         }
         return clientOS;
     }
@@ -33,7 +30,7 @@ public class Main {
         int a = Year % 4;
         int b = Year % 100;
         int c = Year % 400;
-        if (a <= 0 && c <= b) {
+        if (a == 0 && b != 0 || c == 0) {
             System.out.println("номер года " + Year + " — высокосный год");
         } else {
             System.out.println("номер года " + Year + " — не высокосный год");
@@ -43,7 +40,7 @@ public class Main {
 
     public static void main(String[] args) {
         //zadanie 1
-        int year = calculateYear(2023);
+        int year = calculateYear(1900);
         //zadaie 2
         int foneModel = createFone(1, 2014);
         //zadanie 3
